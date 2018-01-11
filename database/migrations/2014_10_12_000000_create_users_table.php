@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('wallet_key')->nullable();
             $table->string('avatar_uri')->default('https://www.idloom.com/application/themes/roker/img/testimonials/avatar_none.png');
             $table->rememberToken();
             $table->timestamps();

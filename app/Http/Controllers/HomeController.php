@@ -28,6 +28,7 @@ class HomeController extends Controller
         $wallets = DB::select('SELECT * FROM wallets WHERE userid=:userid', array(
             'userid'=>Auth::user()->id
         ));
-        dd($wallets[0]);
+        // return view('home', array('wallets'=>$wallets));
+        return view("home", array('wallets'=>$wallets));
     }
 }

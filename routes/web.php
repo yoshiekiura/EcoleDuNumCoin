@@ -25,6 +25,25 @@ Route::post('/create-wallet', array(
     'uses' => 'userProfil@createWalletPost'
 ))->middleware('auth');
 
+Route::get('/transfert/{type}/{from}/{to}/{amount}', array(
+    'as' => 'transfertMoney',
+    'uses' => 'userProfil@transfert'
+))->middleware('auth');
+
+Route::get('/send-money', array(
+    'as' => 'sendMoney',
+    'uses' => 'userProfil@sendMoney'
+));
+
+Route::get('/wallet/{id}', array(
+    'as' => 'viewWallet',
+    'uses' => 'userProfil@wallet'
+))->middleware('auth');
+
+Route::post('/walletTransfertPost', array(
+    'as' => 'WalletPost',
+    'uses' => 'userProfil@walletTransfertPost'
+));
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

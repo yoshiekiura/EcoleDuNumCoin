@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>LaraCoin</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -14,7 +14,9 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                background-image: url('http://www.mindcontrolindustries.com/wp-content/uploads/2014/01/tLrJdPv.jpg');
+                background-size: cover;
+                color: #fff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -47,20 +49,26 @@
 
             .title {
                 font-size: 84px;
+                font-weight: bold;
+                /* color: #f1c40f; */
             }
 
             .links > a {
-                color: #636b6f;
+                color: #fff;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                transition: all 0.2s;
+            }
+            .links > a:hover {
+                font-size: 14px;
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 0px;
             }
         </style>
     </head>
@@ -79,16 +87,16 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    LaraCoin
                 </div>
 
-                <div class="links">
+                <!-- <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </body>
