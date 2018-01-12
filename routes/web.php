@@ -35,6 +35,11 @@ Route::get('/wallet/{id}', array(
     'uses' => 'userProfil@wallet'
 ))->middleware('auth');
 
+Route::get('/wallet/remove/{id}', function($id) {
+    return 'delete wallet '.$id;
+})->middleware('auth');
+
+
 Route::post('/walletTransfertPost', array(
     'as' => 'WalletPost',
     'uses' => 'userProfil@walletTransfertPost'
@@ -46,6 +51,11 @@ Route::post('/transfertMoneyPost', array(
 Route::get('/offerts', array(
     'as' => 'Offres',
     'uses' => 'userProfil@offerts'
+));
+
+Route::get('/profil', array(
+    'as' => 'ProfilPage',
+    'uses' => 'userProfil@profil'
 ));
 
 Auth::routes();

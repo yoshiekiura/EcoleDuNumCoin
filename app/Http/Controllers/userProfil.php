@@ -80,4 +80,8 @@ class userProfil extends Controller
         dump($r);
         die();
     }
+
+    public function profil() {
+        return view('profil');
+    }
 }

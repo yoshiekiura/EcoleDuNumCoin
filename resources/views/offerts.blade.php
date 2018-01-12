@@ -20,7 +20,7 @@
 
                     {{ Form::open(['url' => 'transfertMoneyPost', 'id' => 'formBuy']) }}
                         <div class="form-group">
-                            <input type="number" name="amount" class="form-control">
+                            {{ Form::number('amount', 0, ['class'=>'form-control'] ) }}
                         </div>
                         <div class="form-group">
                             <h3 class="text-center textInfo-Bbtc">Acheter 1 BTC pour 14,568$</h3>

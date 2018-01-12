@@ -32,6 +32,9 @@
                             {{ Form::button('Envoyer',array('type'=>'submit','class'=>'btn btn-primary')) }}
                         </div>
                     {{ Form::close() }}
+
+                    <hr/>
+                    <a href="/wallet/remove/{{$id}}" class="btn btn-primary">Delete wallet</a>
                 </div>
             </div>
         </div>
