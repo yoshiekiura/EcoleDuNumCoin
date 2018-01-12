@@ -19,14 +19,19 @@
                             {{ session()->get('message') }}
                         </div>
                     @endif
+                    @if(session()->has('errorType'))
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            {{ session()->get('errorType') }}
+                        </div>
+                    @endif
                     <div class="table-responsive">
-                        <a href="/create-wallet" class="btn btn-primary">Ajouter un compte</a>
-                        <a href="/send-money" class="btn btn-primary">Envoyer de l'argent</a>
+                        <a href="/create-wallet" class="btn btn-primary">Create wallet</a>
                     <table class="table">
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Key</th>
+                            <th>Adress</th>
                             <th>Type</th>
                             <th>Amount</th>
                             <th></th>
@@ -36,10 +41,12 @@
                         @foreach ($wallets as $wallet)
                             <tr>
                                 <td>{{ $wallet->id }}</td>
-                                <td>{{ $wallet->key }}</td>
+                                <td><a class="btnCopy">{{ $wallet->key }}</a></td>
                                 <td>{{ $wallet->type }}</td>
                                 <td>{{ $wallet->amount }}</td>
-                                <td style="text-align:right;"><a href="/wallet/{{$wallet->id}}" class="btn btn-primary">Voir</a></td>
+                                <td style="text-align:right;">
+                                    <a href="/wallet/{{$wallet->id}}" class="btn btn-primary">View</a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

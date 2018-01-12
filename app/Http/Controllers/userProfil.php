@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateWalletRequest;
+use App\Http\Requests\TransfertMoneyRequest;
 use App\Wallet;
 
 class userProfil extends Controller
@@ -31,13 +32,6 @@ class userProfil extends Controller
         return redirect('/home')->with('message','Your wallet has been correctly created');
     }
 
-    public function sendMoney() {
-        $wallets = DB::select('SELECT * FROM wallets WHERE userid=:userid', array(
-            'userid'=>Auth::user()->id
-        ));
-        return view("sendmoney", array('wallets'=>$wallets));
-    }
-
     public function wallet($id) {
         $wallet = DB::select('SELECT * FROM wallets WHERE id=:id', array(
             'id'=>$id
@@ -45,12 +39,40 @@ class userProfil extends Controller
         if ($wallet[0]->userid!=Auth::user()->id) {
             return 'false';
         }
-        return view("wallet", array('id'=>$id));
+        return view("wallet", array('id'=>$id, 'wallet'=>$wallet));
     }
 
     public function transfert($type, $from, $to, $amount) {
         echo 'TransfertData: '.$type.': '.$amount.'  ( '.$from.' -> '.$to.' )';
         die();
+    }
+
+    public function transfertMoneyPost(TransfertMoneyRequest $request) {
+        $r = $request->all();
+        $fromWallet = $r["currentWalletKey"];
+        $toWallet = $r["walletkey"];
+        $amount = $r["amount"];
+
+        $walletSender = DB::table('wallets')->where('key', '=', $fromWallet)->get();
+        $walletReceiver = DB::table('wallets')->where('key', '=', $toWallet)->get();
+
+        if ($walletSender[0]->type == $walletReceiver[0]->type) {
+
+            DB::table('wallets')->where('key', $fromWallet)->update(['amount' => $walletSender[0]->amount - $amount]);
+            DB::table('wallets')->where('key', $toWallet)->update(['amount' => $walletReceiver[0]->amount + $amount]);
+            
+            return redirect('/home')->with('message', $amount.' '.$walletSender[0]->type.' transfered');
+        } else {
+            return redirect('/home')->with('errorType','Wallet type error');
+        }
+
+    }
+
+    public function offerts() {
+        $jsonData = json_decode(file_get_contents('https://api.coinmarketcap.com/v1/ticker/bitcoin/'));
+
+        // dd($jsonData);
+        return view('offerts');
     }
 
     public function walletTransfertPost(Request $request) {

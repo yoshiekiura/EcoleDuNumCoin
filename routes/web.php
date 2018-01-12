@@ -30,11 +30,6 @@ Route::get('/transfert/{type}/{from}/{to}/{amount}', array(
     'uses' => 'userProfil@transfert'
 ))->middleware('auth');
 
-Route::get('/send-money', array(
-    'as' => 'sendMoney',
-    'uses' => 'userProfil@sendMoney'
-));
-
 Route::get('/wallet/{id}', array(
     'as' => 'viewWallet',
     'uses' => 'userProfil@wallet'
@@ -43,6 +38,14 @@ Route::get('/wallet/{id}', array(
 Route::post('/walletTransfertPost', array(
     'as' => 'WalletPost',
     'uses' => 'userProfil@walletTransfertPost'
+));
+Route::post('/transfertMoneyPost', array(
+    'as' => 'TransfertMoneyPost',
+    'uses' => 'userProfil@transfertMoneyPost'
+));
+Route::get('/offerts', array(
+    'as' => 'Offres',
+    'uses' => 'userProfil@offerts'
 ));
 
 Auth::routes();
