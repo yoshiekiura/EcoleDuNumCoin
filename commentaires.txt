@@ -1,0 +1,33 @@
+/********** ALFONSO ************/
+
+Salut Melvin!
+
+Bravo pour ce projet bitcoin/etherium. Tout marche en surface et je pense que tu es le seul à avoir plus ou moins fini en 3 jours.
+
+Sauf que tu n'as pas fait de seed (bon ok ce n'était pas obligé mais ça aurait pu aider en fait).
+
+J'ai créé deux comptes bitcoin et j'ai du modifié la base de donnée manuellement pour avoir l'un des comptes avec 10 bitcoins.
+
+Ensuite j'ai remis mis l'addresse la même addresse pour virer des bitcoin depuis la même addresse et les comptes se rajoutent!!
+LOL pourvu que tu mettes ça en ligne!! Grosso modo il aurait fallu faire des checking pour voir si tu fais ça sur une addresse
+valide. Ensuite il aurait fallu faire une transaction SQL pour passer la tune d'un compte à un autre.
+
+Aussi je pense qu'une table transaction aurait été judicieuse. Pour avoir un historique de ce qu'on a fait. Bon c'est un peu ma faute. J'aurai du te suivre un peu plus pendant cette formation...
+
+Ensuite j'ai une wallet key qui est requise quand j'essaie d'acheter un bitcoin sur le marché.
+Mais en fait pourquoi faire? Si on veut acheter un bitcoin on devrait pouvoir
+tant qu'il y a une offre. Peu importe si on a pas la clé ou pas. Le système est sensé s'en charger. C'est pas au user de fournir une clé.
+
+Aussi les décimaux aurait été un plus quand il s'agit de cryptos. Le delete wallet ne marche pas?
+
+Bon dans l'ensemble ça va. Mais tu aurais pu créer des répo (C'est peut être la question que tu m'as posé à un moment donné)
+Néanmoins tu as compris qu'il fallait faire globalement.
+
+Continues à étudier et merci d'avoir aidé les autres qui n'ont pas les même facilités que toi.
+
+J'espère qu'on se recroisera pour une bière.
+
+A bientôt.
+
+
+
